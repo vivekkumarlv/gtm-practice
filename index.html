@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly | Manage Your Workflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --dark: #1e293b; --light: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--dark); background: var(--light); line-height: 1.6; }
+        nav { display: flex; justify-content: space-between; padding: 20px 10%; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 500; }
+        
+        .hero { text-align: center; padding: 80px 10%; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: white; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: white; color: var(--primary); }
+        .btn-primary:hover { background: #f1f1f1; }
+        
+        .section { padding: 60px 10%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card h3 { margin-top: 0; }
+        
+        .contact-form { max-width: 500px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; text-align: left; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        .footer { background: var(--dark); color: white; padding: 40px 10%; text-align: center; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav>
+        <a href="#" class="logo">Taskly.io</a>
+        <div class="nav-links">
+            <a href="#features" class="menu-item">Features</a>
+            <a href="#pricing" class="menu-item">Pricing</a>
+            <a href="https://blog.taskly.io" target="_blank" class="menu-item">Blog</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Work Smarter, Not Harder.</h1>
+        <p>The all-in-one platform to track your team's progress in real-time.</p>
+        <a href="#signup" class="btn btn-primary" id="hero-cta">Get Started Free</a>
+    </header>
+
+    <section id="features" class="section">
+        <h2>Why Choose Taskly?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Automation</h3>
+                <p>Save hours every week by automating repetitive tasks.</p>
+                <a href="#" class="feature-link" data-type="automation">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Analytics</h3>
+                <p>Detailed heatmaps and reports for every project.</p>
+                <a href="#" class="feature-link" data-type="analytics">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="section" style="background: #eef2ff;">
+        <h2>Ready to transform your workflow?</h2>
+        <div class="contact-form">
+            <form id="lead-gen-form">
+                <label>Full Name</label>
+                <input type="text" name="user_name" id="user_name" placeholder="John Doe" required>
+                
+                <label>Business Email</label>
+                <input type="email" name="user_email" id="user_email" placeholder="john@company.com" required>
+                
+                <label>Company Size</label>
+                <select name="company_size" id="company_size">
+                    <option value="1-10">1-10 employees</option>
+                    <option value="11-50">11-50 employees</option>
+                    <option value="50+">50+ employees</option>
+                </select>
+                
+                <button type="submit" class="btn" style="background: var(--primary); color: white; width: 100%; margin-top: 10px;">Claim My Free Trial</button>
+            </form>
+            <p id="thank-you-msg" style="display:none; color: #059669; font-weight: bold; margin-top: 15px;">Success! Check your email for login details.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Taskly Inc. | <a href="#" style="color: #94a3b8;">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Form Success Logic
+        document.getElementById('lead-gen-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('thank-you-msg').style.display = 'block';
+            
+            // Push a custom event to the DataLayer for practice
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'form_submission_complete',
+                'form_name': 'lead_gen',
+                'company_size': document.getElementById('company_size').value
+            });
+        });
+    </script>
+</body>
+</html>
