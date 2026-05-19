@@ -41,7 +41,7 @@
         // 2. The Custom SPA Router Function
         function navigateTo(urlPath) {
             // Update the browser's URL bar without a page reload
-            window.history.pushState({}, "", urlPath);
+            // window.history.pushState({}, "", urlPath);
             
             // Swap out the text contents inside our viewport container
             document.getElementById('view-viewport').innerHTML = pages[urlPath];
