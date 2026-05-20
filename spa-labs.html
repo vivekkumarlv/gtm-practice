@@ -45,6 +45,12 @@
             
             // Swap out the text contents inside our viewport container
             document.getElementById('view-viewport').innerHTML = pages[urlPath];
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+            'event': 'virtual_page_view',
+            'virtual_page_path': urlPath
+        });
             
             console.log("SPA Route changed to: " + urlPath);
         }
